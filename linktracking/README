@@ -1,0 +1,55 @@
+LINKTRACKING MODULE FOR SILVERSTRIPE
+v0.1
+
+
+
+About
+------------------------------------------------------------
+
+This module adds the ability to track link usage. It works by taking a destination URL, 
+saving it in the database, and returning a hash slug that identifies it. You then 
+distribute the hash slug URL via email or on the net, etc. Every time someone accesses
+the hash slug URL they will be recorded, then redirected to the original destination.
+
+This module was developed for monitoring email campaigns, but it is my hope that it is
+generic enough for any usage where people are interested in what links are being used.
+
+Features:
+	- Generate short URL for any link in the form http://example.org/go/adb91c
+	- Link can either redirect, or pass through content (useful for tracking image downloads)
+	- Links can have a specified source - eg 'web', 'twitter', or a DataObject such as Member
+	- Observer decorator can allow a DataObject to track hits over multiple sources and/or URLs
+	- Content parser uses PHP::DOM to extract URLs out of HTML and replace them with tracked links
+	
+
+Maintainer Contact
+------------------------------------------------------------
+Al Twohill (mobiusnz)
+<(firstname) (at) hol (dot) net (dot) nz>
+
+
+
+Requirements
+------------------------------------------------------------
+SilverStripe 2.4+
+(May work on older versions, has not been tested on any previous to this)
+
+
+
+Installation Instructions
+------------------------------------------------------------
+1. Extract the linktracking folder into the to level of your site.
+2. (Optional) add 
+		Object::add_extension('YourDataObject', 'Observer');
+	to your /mysite/_config.php. Replace 'YourDataObject' with whatever object might
+	need to observer link hits. You may specify more than one by calling add_extension()
+	multiple times.
+3. Visit http://www.yoursite.com/dev/build?flush=all to rebuild the database.
+
+Usage Instructions
+------------------------------------------------------------
+
+The reporting features are only documented in the code at this stage (work in progress).
+
+However, for the most simple usage, use the ModelAdmin page included to generate links, 
+and view hits.

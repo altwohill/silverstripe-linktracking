@@ -1,0 +1,48 @@
+TrackedLink:
+	redirect:
+		Slug: 'abc123'
+		LinkType: 'Redirect'
+		Destination: "http://www.google.co.nz"
+		SourceType: 'test-suite'
+		ObserverType: 'Member'
+		ObserverID: '1'
+	redirect2:
+		Slug: 'a1b2c3'
+		LinkType: 'Redirect'
+		Destination: "http://www.google.co.nz"
+		SourceType: 'Member'
+		SourceID: '1'
+		ObserverType: 'Member'
+		ObserverID: '1'
+	direct:
+		Slug: '123abc'
+		LinkType: 'DirectDownload'
+		Destination: "http://www.google.co.nz"
+		SourceType: 'test-suite'
+LinkHit:
+	1:
+		Created: 2011-01-01 08:30
+		IP: 123.123.123.123
+		Link: =>TrackedLink.redirect
+	2:
+		Created: 2011-01-01 08:45
+		IP: 123.123.123.123
+		Link: =>TrackedLink.redirect
+	3:
+		Created: 2011-01-01 08:50
+		IP: 124.124.124.124
+		Link: =>TrackedLink.redirect
+	4:
+		Created: 2011-01-01 09:00
+		IP: 124.124.124.124
+		Link: =>TrackedLink.redirect2
+	5:
+		Created: 2011-01-01 08:30
+		IP: 125.125.125.125
+		Link: =>TrackedLink.direct
+Member:
+	test:
+		ID: '1'
+		FirstName: John
+		Surname: Smith
+		Email: john@smith.com
