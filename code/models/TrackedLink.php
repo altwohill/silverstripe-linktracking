@@ -22,12 +22,12 @@ class TrackedLink extends DataObject {
   	 * but it could be any data-type, and the SourceType could also be a string
 	 */
 	public static $db = array(
-		'Slug' => 'Varchar',
+		'Slug' => 'Varchar(6)',
 		'LinkType' => 'Enum("Redirect,DirectDownload")',
 		'Destination' => 'Varchar(255)',
-		'SourceType' => 'Varchar(255)',
+		'SourceType' => 'Varchar(50)',
 		'SourceID' => 'Int',
-		'ObserverType' => 'Varchar(255)',
+		'ObserverType' => 'Varchar(50)',
 		'ObserverID' => 'Int',
 	);
 	/**

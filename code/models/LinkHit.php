@@ -8,7 +8,7 @@
 class LinkHit extends DataObject {
 	
 	public static $db = array(
-		'IP' => 'Varchar'
+		'IP' => 'Varchar(39)' //Sized to accept IPv6
 	);
 	
 	public static $has_one = array(
